@@ -53,7 +53,7 @@ var status = true;
 
 
 function publish(){
-    //if true, it will go through the scraping and could tweet aswell
+    //if true, it will go through the scraping and could send the dc message aswell
     if(status === true) {
             request(searchUrl, function(err, response, html) {
             // First we'll check to make sure no errors occurred when making the request
@@ -61,7 +61,7 @@ function publish(){
                 return res.status(500).send(err);
             }
             var $ = cheerio.load(html);
-            // Getting the first game in the steam list
+            // Getting the first game on gamerno
 
             //matchdate
             const matchdate = $("#main > div > div.flex-row.break-mobile > div:nth-child(3) > div > div:nth-child(2) > ul > li:nth-child(1) > a > span > span").text();
@@ -86,14 +86,14 @@ function publish(){
                     
                 }
 
-            //changing status so it doesnt tweet every 30min
+            //changing status so it doesnt send message every 30min
             status = matchdate + matchurl;
             });
             
 
     }
 
-    //made this so it does not tweet out every 30 min about the same news
+    //made this it doesnt send message about the same game every 30 min
     if(status === savedData) {
     } else {
     status = true;
