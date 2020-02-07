@@ -1,0 +1,16 @@
+{
+  "name": "lunxs",
+  "version": "1.0.0",
+  "description": "A discordbot for lunx team",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "IFreeze",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^11.5.1",
+    "request": "^2.88.0"
+  }
+}
